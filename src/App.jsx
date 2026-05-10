@@ -3,7 +3,9 @@ import './App.css'
 
 // key="50d464538c244551b7d230839261005";
 
+
 function App() {
+  const [tempF, setTempF] = useState(null);
 
   async function getWeather () {
     const response = await fetch(
@@ -12,7 +14,9 @@ function App() {
     const weather = await response.json();
 
     const tempC = weather.current?.temp_c;
-    console.log(tempC);
+    const tempFar = weather.current?.temp_f;
+
+    setTempF(tempFar);
   }
 
   getWeather();
@@ -20,7 +24,7 @@ function App() {
 
   return (
     <>
-
+    <p>{tempF}</p>
     </>
   )
 }
