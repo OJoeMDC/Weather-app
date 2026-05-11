@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import weatherCard from './weatherCard'
+import weatherScroller from './weatherScroller'
 
 // key="50d464538c244551b7d230839261005";
 

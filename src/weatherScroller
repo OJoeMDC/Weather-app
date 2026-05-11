@@ -1,0 +1,11 @@
+import { useState, useEffect } from 'react';
+import './weatherScroller.css'
+
+function weatherScroller() {
+    return(
+        <div>
+        </div>
+    );
+}
+
+export default weatherScroller;
