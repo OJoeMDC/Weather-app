@@ -1,51 +1,58 @@
 import { useState, useEffect } from 'react'
 import './WeatherCard.css'
+import {
+  WiDaySunny,
+  WiCloud,
+  WiRain,
+  WiSnow,
+  WiThunderstorm,
+  WiFog,
+  WiNightClear,
+  WiDayCloudy,
+  WiRaindrop,
+  WiStrongWind,
+} from "react-icons/wi";
 
 
 function WeatherCard({weather}) {
-
-const [hour, setHour] = useState("0");
-const [day, setDay] = useState("0");
-
-const selectedDay = weather?.forecast?.forecastday?.[Number(day)];
-const selectedHour = selectedDay?.hour?.[Number(hour)];
-const city = weather.location.name;
 
 // if (!selectedDay || !selectedHour) {
 //     return null;
 // }
 const tempF = weather.current.temp_f;
+const highF = weather.forecast.forecastday[0].day.maxtemp_f;
+const lowF = weather.forecast.forecastday[0].day.mintemp_f;
+const rainChance = weather.current.chance_of_rain;
+const snowChance = weather.current.chance_of_snow;
+const cloud = weather.current.cloud;
+
+
+function WeatherIcon({ rainChance }) {
+
+  if (rainChance <= 30) {
+    return <WiDaySunny/>;
+  }
+
+  if (rainChance <= 50) {
+    return <WiDayCloudy/>;
+  }
+
+  if (rainChance <= 70) {
+    return <WiCloud/>;
+  }
+
+  return <WiRain/>;
+}
 
 
     return (
-        <div className='weather-card'>
-            {/* <h2>title</h2> */}
-            <h3>City: {city}</h3>
-            {/* <p>Now: {tempF}</p>
-            <p>Hour 0: {hourF}</p> */}
-
-            {selectedDay? (
-                <>
-                <p>High: {selectedDay.day.maxtemp_f}</p>
-                <p>Low: {selectedDay.day.mintemp_f}</p>
-                </>
-            ) : (
-                <p>Invalid Day</p>
-            )}
-
-            {selectedHour? (
-                <>
-                <p>Hour {hour ? hour: 0}: {selectedHour.temp_f}</p>
-                </>
-            ) : (
-                <p>Invalid Hour</p>
-            )}
-
-            <label>Day</label>
-            <input className='Day' type='number' value={day} onChange={(e) => setDay(e.target.value)} />
-            <label>Hour</label>
-            <input className='Hour' type='number' value={hour} onChange={(e) => setHour(e.target.value)} />
-
+        <div className ='weather-card'>
+            <h2 className = "title">{tempF}°F</h2>
+            <div className = "icon">
+                <WeatherIcon rainChance={rainChance} />
+            </div>
+            <p className = "range">Hi: {highF}°F</p>
+            <p className = "range">Lo: {lowF}°F</p>
         </div>
 
     );
