@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import WeatherScroller from './WeatherScroller'
-
-// key="50d464538c244551b7d230839261005";
+import SearchBar from './SearchBar';
 
 
 
 function App() {
 const [error, setError] = useState("");
 const [selectedCity, setSelectedCity] = useState("London");
+const [inputValue, setInputValue] = useState("London");
 
   const [tempF, setTempF] = useState(null);
   const [weather, setWeather] = useState(null);
@@ -16,7 +16,7 @@ const [selectedCity, setSelectedCity] = useState("London");
   async function getWeather () {
     try {
       const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=50d464538c244551b7d230839261005&q=${selectedCity}&days=1&aqi=no&alerts=n`
+      `https://api.weatherapi.com/v1/forecast.json?key=50d464538c244551b7d230839261005&q=${selectedCity}&days=7&aqi=no&alerts=no`
         );
       const weatherData = await response.json();
 
@@ -38,13 +38,14 @@ const [selectedCity, setSelectedCity] = useState("London");
 
   useEffect(() => {
       getWeather();
-      }, []);
+      }, [selectedCity]);
     
 
   return (
     <>
-    <main>
-      {weather && <WeatherScroller weather={weather} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>}
+    <main className="App">
+        <SearchBar inputValue={inputValue} setInputValue={setInputValue} setSelectedCity={setSelectedCity} />
+        {weather && <WeatherScroller weather={weather} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>}
     </main>
     </>
   )

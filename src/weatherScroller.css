@@ -1,5 +1,12 @@
-main {
-    border-radius: 12px;
-    background-color: blanchedalmond;
+.cardDisplay {
     display: flex;
+    flex-direction: row;
+}
+
+.weatherScroller {
+    background-color: blanchedalmond;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

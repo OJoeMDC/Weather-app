@@ -14,14 +14,18 @@ import {
 } from "react-icons/wi";
 
 
-function WeatherCard({weather}) {
+function WeatherCard({ weather, day }) {
 
-// if (!selectedDay || !selectedHour) {
-//     return null;
-// }
+const selectedDay = weather?.forecast?.forecastday?.[day];
+
+const date = selectedDay?.date;
+const weekday = new Date(date).toLocaleDateString("en-US", {
+  weekday: "short",
+});
+
 const tempF = weather.current.temp_f;
-const highF = weather.forecast.forecastday[0].day.maxtemp_f;
-const lowF = weather.forecast.forecastday[0].day.mintemp_f;
+const highF = selectedDay?.day.maxtemp_f;
+const lowF = selectedDay?.day.mintemp_f;
 const rainChance = weather.current.chance_of_rain;
 const snowChance = weather.current.chance_of_snow;
 const cloud = weather.current.cloud;
@@ -47,7 +51,7 @@ function WeatherIcon({ rainChance }) {
 
     return (
         <div className ='weather-card'>
-            <h2 className = "title">{tempF}°F</h2>
+            <h2 className = "title">{weekday}</h2>
             <div className = "icon">
                 <WeatherIcon rainChance={rainChance} />
             </div>
