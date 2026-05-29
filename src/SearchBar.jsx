@@ -7,7 +7,8 @@ function SearchBar({
     setSelectedCity,
 }) {
     return (
-        <div className="searchBar">
+        <form className="searchBar" onSubmit={(e) => 
+        { e.preventDefault(); setSelectedCity(inputValue); getWeatherData(inputValue); }}>
             <input
                 type="text"
                 placeholder="Enter city"
@@ -15,10 +16,10 @@ function SearchBar({
                 onChange={(e) => setInputValue(e.target.value)}
             />
 
-            <button onClick={() => setSelectedCity(inputValue)}>
-                Search
+            <button type='submit'>
+                🔍
             </button>
-        </div>
+        </form>
     )
 }
 

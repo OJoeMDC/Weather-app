@@ -25,3 +25,11 @@
     font-size: 60px;
     text-align: center;
 }
+
+.rain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}

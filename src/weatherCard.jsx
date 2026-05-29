@@ -29,6 +29,7 @@ const lowF = selectedDay?.day.mintemp_f;
 const rainChance = weather.current.chance_of_rain;
 const snowChance = weather.current.chance_of_snow;
 const cloud = weather.current.cloud;
+const avgTemp = selectedDay?.day.avgtemp_f;
 
 
 function WeatherIcon({ rainChance }) {
@@ -55,8 +56,10 @@ function WeatherIcon({ rainChance }) {
             <div className = "icon">
                 <WeatherIcon rainChance={rainChance} />
             </div>
-            <p className = "range">Hi: {highF}°F</p>
-            <p className = "range">Lo: {lowF}°F</p>
+            <p className = "range">{avgTemp}°</p>
+            <div className = "rain">
+              <WiRaindrop/><p>{rainChance}%</p>
+            </div>
         </div>
 
     );
