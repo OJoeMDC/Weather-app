@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import WeatherScroller from './WeatherScroller'
 import SearchBar from './SearchBar';
+import WeatherSummary from './WeatherSummary';
 
 
 
@@ -45,6 +46,7 @@ const [inputValue, setInputValue] = useState("London");
     <>
     <main className="App">
         <SearchBar inputValue={inputValue} setInputValue={setInputValue} setSelectedCity={setSelectedCity} />
+        <WeatherSummary weather={weather} selectedCity={selectedCity} />
         {weather && <WeatherScroller weather={weather} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>}
     </main>
     </>

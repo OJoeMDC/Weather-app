@@ -1,5 +1,5 @@
 .weather-card {
-    background: var(--tempBG);
+    background: var(--secondaryColor);
     padding: 16px;
     margin: 16px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -21,10 +21,17 @@
   text-align: center;
 }
 
+.weather-card:hover {
+    background: var(--buttonHover);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
 .icon {
     font-size: 60px;
     text-align: center;
 }
+
 
 .rain {
     display: flex;

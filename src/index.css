@@ -1,9 +1,23 @@
 :root {
- --tempBG: #87CEEb;
+ --pageBG: #EAF6FF;
+ --mainColor: #DDEAF5;
+ --secondaryColor: #8EC9E8;
+
+ --softText: #6b7280;
+ --buttonBG: #8EC9E8;
+ --buttonHover: #7AB8E0;
 
  font-family: 'Poppins', sans-serif;
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }

@@ -7,7 +7,7 @@ function WeatherScroller({weather}) {
 
         return(
             <div className='weatherScroller'>
-                <h2>{weather.location.name}</h2>
+                {/* <h2>{weather.location.name}</h2> */}
                 <div className='cardDisplay'>
                     {weather.forecast.forecastday.map((dayData, index) => (
                     <WeatherCard 
