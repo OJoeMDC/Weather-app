@@ -19,6 +19,7 @@ const [selectedDay, setSelectedDay] = useState(0);
 
   async function getWeather () {
     try {
+      // Check if the selectedCity is empty
       if (!selectedCity) {
         setError("Please enter a city name");
         return;
