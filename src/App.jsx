@@ -11,28 +11,40 @@ const [error, setError] = useState("");
 const [selectedCity, setSelectedCity] = useState("London");
 const [inputValue, setInputValue] = useState("London");
 
-  const [tempF, setTempF] = useState(null);
+const [selectedDay, setSelectedDay] = useState(0);
+
   const [weather, setWeather] = useState(null);
+
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
 
   async function getWeather () {
     try {
+      if (!selectedCity) {
+        setError("Please enter a city name");
+        return;
+      }
+
       const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=50d464538c244551b7d230839261005&q=${selectedCity}&days=7&aqi=no&alerts=no`
         );
+
+
       const weatherData = await response.json();
 
-      const tempC = weatherData.current?.temp_c;
-      const tempFar = weatherData.current?.temp_f;
+      if (weatherData.error) {
+        setError("City not found");
+        return;
+      }
 
-      setTempF(tempFar);
       setWeather(weatherData);
-
-      console.log(weatherData);
+      setSelectedCity(weatherData.location.name);
+      setError("");
+      setSelectedDay(0); // Reset selected day to 0 when a new city is searched
 
 
     } catch (err) {
 
-      setError(err.message);
+      setError("Something went wrong. Please try again.", err.message);
     }
   }
 
@@ -45,9 +57,33 @@ const [inputValue, setInputValue] = useState("London");
   return (
     <>
     <main className="App">
-        <SearchBar inputValue={inputValue} setInputValue={setInputValue} setSelectedCity={setSelectedCity} />
-        <WeatherSummary weather={weather} selectedCity={selectedCity} />
-        {weather && <WeatherScroller weather={weather} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>}
+        <SearchBar 
+        inputValue={inputValue} 
+        setInputValue={setInputValue} 
+        setSelectedCity={setSelectedCity} 
+        />
+
+        {error && <p className="error">{error}</p>}
+
+        <WeatherSummary 
+        weather={weather} 
+        selectedCity={selectedCity} 
+        isFahrenheit={isFahrenheit} 
+        setIsFahrenheit={setIsFahrenheit}
+        setSelectedCity={setSelectedCity}
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+        />
+
+        {weather && <WeatherScroller 
+        weather={weather} 
+        selectedCity={selectedCity} 
+        setSelectedCity={setSelectedCity} 
+        isFahrenheit={isFahrenheit}
+        setIsFahrenheit={setIsFahrenheit} 
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+        />}
     </main>
     </>
   )

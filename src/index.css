@@ -4,8 +4,8 @@
  --secondaryColor: #8EC9E8;
 
  --softText: #6b7280;
- --buttonBG: #8EC9E8;
- --buttonHover: #7AB8E0;
+ --buttonBG: rgba(255,255,255,.4);
+ --buttonHover: rgba(209, 209, 209, 0.758)  ;
 
  font-family: 'Poppins', sans-serif;
 

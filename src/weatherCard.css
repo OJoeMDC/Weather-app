@@ -22,7 +22,7 @@
 }
 
 .weather-card:hover {
-    background: var(--buttonHover);
+    background: #67bce9;
     cursor: pointer;
     transform: scale(1.02);
 }

@@ -15,6 +15,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #d9e6f2;
+    border-radius: 16px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .city-info {
@@ -23,6 +28,8 @@
     align-items: baseline;
     margin-bottom: 1rem;
     width: 100%;
+    border-bottom: 2px solid var(--softText);
+    opacity: 0.7;
 }
 
 .city-name {
@@ -42,25 +49,6 @@
     align-items: right;
     margin-bottom: 1rem;
     width: 100%;
-}
-
-.temp-toggle {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 1rem;
-    padding: 0.25rem 0.5rem;
-
-    background: var(--buttonBG);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    border: none;
-    border-radius: 0.5rem;
-}
-
-.temp-toggle:hover {
-    background: var(--buttonHover);
-    cursor: pointer;
 }
 
 .condition-info {
@@ -89,7 +77,36 @@
 
 .condition,
 .feels-like {
+    color: var(--softText);
+    font-size: 0.9rem;
     margin: 0.25rem 0;
+}
+
+.unit-toggle {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.unit-toggle span {
+    cursor: pointer;
+    color: var(--softText);
+}
+
+.unit-toggle .active {
+    color: black;
+    font-weight: 700;
+    background: var(--secondaryColor);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+}
+
+.unit-toggle .inactive {
+    color: black;
+    background: var(--buttonBG);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
 }
 
 .details {
@@ -99,6 +116,33 @@
     justify-content: center;
     padding: 0.25rem;
     gap: 2rem;
+}
+
+.details p {
+    padding: 0.75rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.high {
+    border-bottom: 3px solid #ff6b6b;
+}
+
+.low {
+    border-bottom: 3px solid #4dabf7;
+}
+
+.wind-speed {
+    border-bottom: 3px solid #74c0fc;
+}
+
+.wind-direction {
+    border-bottom: 3px solid #94d2bd;
+}
+
+.humidity {
+    border-bottom: 3px solid #63e6be;
 }
 
 .location-section,
