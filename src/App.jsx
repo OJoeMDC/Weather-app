@@ -61,7 +61,7 @@ const [selectedDay, setSelectedDay] = useState(0);
         <SearchBar 
         inputValue={inputValue} 
         setInputValue={setInputValue} 
-        setSelectedCity={setSelectedCity} 
+        setSelectedCity={setSelectedCity}
         />
 
         {error && <p className="error">{error}</p>}

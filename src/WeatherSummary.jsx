@@ -37,9 +37,11 @@ function WeatherSummary({ weather, selectedCity, isFahrenheit, setIsFahrenheit, 
 
 //   Stops the region from dispalying if it has same name as city and displays country instead
   const displayRegion =
-  !weather || weather.location.region === weather.location.name
-    ? weather.location.country
-    : weather.location.region;
+  !weather
+    ? ""
+    : !weather.location.region || weather.location.region === weather.location.name
+      ? weather.location.country
+      : weather.location.region;
 
   const windDirectionText = getWindDirection(windDirection);
 

@@ -8,7 +8,7 @@ function SearchBar({
 }) {
     return (
         <form className="searchBar" onSubmit={(e) => 
-        { e.preventDefault(); setSelectedCity(inputValue.trim()); getWeatherData(inputValue); }}>
+        { e.preventDefault(); setSelectedCity(inputValue.trim());}}>
             <input
                 type="text"
                 placeholder="Enter city"
