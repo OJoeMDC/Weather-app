@@ -1,12 +1,12 @@
 # Weather App
 
-A React weather forecast app that lets you search any city and view current conditions plus a 7-day forecast. Built with React, Vite, and the [WeatherAPI](https://www.weatherapi.com/).
+A React weather forecast app that lets you search any city and view current conditions plus a 3-day forecast. Built with React, Vite, and the [WeatherAPI](https://www.weatherapi.com/).
 
 ## Features
 
 - **City search** — search any city worldwide
 - **Current weather** — temperature, conditions, and location info
-- **7-day forecast** — scrollable daily forecast cards
+- **3-day forecast** — scrollable daily forecast cards
 - **Fahrenheit / Celsius toggle** — switch between units
 - **Error handling** — friendly messages for invalid cities or API issues
 
@@ -29,7 +29,7 @@ Weather-app/
 │   ├── SearchBar.css
 │   ├── WeatherSummary.jsx   # Current weather display
 │   ├── WeatherSummary.css
-│   ├── WeatherScroller.jsx  # 7-day forecast cards
+│   ├── WeatherScroller.jsx  # 3-day forecast cards
 │   ├── WeatherScroller.css
 │   ├── weatherCard.jsx      # Individual forecast card
 │   ├── weatherCard.css
